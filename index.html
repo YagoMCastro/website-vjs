@@ -312,6 +312,24 @@
 #slides a:hover {
   text-decoration: underline;
 }
+
+  
+.treatment-section {
+      display: none;
+      padding-left: 20px;
+    }
+
+    .treatment-toggle {
+      cursor: pointer;
+      font-weight: bold;
+      color: #0056b3;
+      margin-top: 10px;
+    }
+
+    .treatment-toggle:hover {
+      text-decoration: underline;
+    }
+
   </style>
 </head>
 <body>
@@ -327,7 +345,7 @@
         </div>
         <nav id="nav">
         <a href="#about">Sobre</a>
-        <a href="#services">Serviços</a>
+        <a href="#services">Tratamentos</a>
         <a href="#contact">Contato</a>
         </nav>
     </div>
@@ -346,17 +364,75 @@
   </section>
 
   <section id="servicos" class="services">
-    <h2>Serviços</h2>
-    <ul>
-        <li>Tratamento de hérnia de disco</li>
-        <li>Cirurgia minimamente invasiva da coluna</li>
-        <li>Reabilitação pós-operatória</li>
-        <li>Tratamento de escoliose e cifose</li>
-        <li>Consulta de avaliação da dor lombar e cervical</li>
-    </ul>
+    <h2>Tratamentos</h2>
+    
+    <p><span class="treatment-toggle" onclick="toggleSection('degenerative')">Patologias degenerativas da coluna</span></p>
+    <div id="degenerative" class="treatment-section">
+      <ul>
+        <li>Artrose facetária (<a href="https://yagomcastro.github.io/artrose-facetaria-slides-vjs/" target="_blank">ver slides</a>)</li>
+        <li>Dorsalgia</li>
+        <li>Hérnia de disco</li>
+        <li>Estenose de canal lombar e cervical</li>
+        <li>Mielopatia cervical</li>
+        <li>Espondilolistese</li>
+        <li>Escoliose degenerativa</li>
+      </ul>
+    </div>
+
+    <p><span class="treatment-toggle" onclick="toggleSection('deformities')">Deformidades da coluna</span></p>
+    <div id="deformities" class="treatment-section">
+      <ul>
+        <li>Escoliose idiopática do adolescente</li>
+        <li>Outras escolioses</li>
+        <li>Cifose de Scheuermann</li>
+        <li>Espondilólise</li>
+        <li>Desequilíbrio sagital</li>
+      </ul>
+    </div>
+
+    <p><span class="treatment-toggle" onclick="toggleSection('fractures')">Fraturas vertebrais</span></p>
+    <div id="fractures" class="treatment-section">
+      <ul>
+        <li>Fraturas agudas e crônicas</li>
+        <li>Fraturas osteoporóticas</li>
+        <li>Fraturas por insuficiência</li>
+      </ul>
+    </div>
+
+    <p><span class="treatment-toggle" onclick="toggleSection('other_conditions')">Outras condições</span></p>
+    <div id="other_conditions" class="treatment-section">
+      <ul>
+        <li>Infecções</li>
+        <li>Tumores</li>
+        <li>Doenças osteometabólicas</li>
+      </ul>
+    </div>
+
+    <p><span class="treatment-toggle" onclick="toggleSection('orthopedic_pain')">Dores ortopédicas</span></p>
+    <div id="orthopedic_pain" class="treatment-section">
+      <ul>
+        <li>Artrose de ombro, quadril e joelho</li>
+        <li>Bursites e tendinites de ombro, quadril e joelho</li>
+        <li>Pontos gatilhos de fibromialgia</li>
+        <li>Dor miofascial</li>
+        <li>Lesão do manguito rotador</li>
+        <li>Condromalácia patelar</li>
+        <li>Fasciite plantar</li>
+      </ul>
+    </div>
+
+    <div style="margin-top:2rem; background:#0056b3; color:white; padding:1.5rem; border-radius:8px; text-align:center;">
+      <h3 style="margin:0; font-size:1.5rem;">Retome sua vida com segurança e qualidade</h3>
+      <p style="margin:0.5rem 0 0;">Tratamentos avançados para você voltar a fazer o que ama.</p>
+    </div>
+  
+    <div style="margin-top:2rem; background:#004494; color:white; padding:1.5rem; border-radius:8px; text-align:center;">
+      <h3 style="margin:0; font-size:1.5rem;">Além da hérnia</h3>
+      <p style="margin:0.5rem 0 0;">Tratamos a dor em sua essência — não apenas o problema, mas a sua qualidade de vida.</p>
+    </div>
   </section>
   <section id="slides">
-    <h2>Links para Slides</h2>
+    <h2>Slides</h2>
     <ul>
       <li><a href="https://yagomcastro.github.io/artrose-facetaria-slides-vjs/" target="_blank">Artrose Facetária</a></li>
     </ul>
@@ -390,6 +466,10 @@
     <p>Developed by <a href="https://github.com/YagoMCastro" class="footer-link">Yago M Castro</a></p>
 </footer>
 <script>
+  function toggleSection(sectionId) {
+    var section = document.getElementById(sectionId);
+    section.style.display = (section.style.display === "none" || section.style.display === "") ? "block" : "none";
+  }
   document.getElementById('menu-toggle').addEventListener('click', function() {
     document.getElementById('nav').classList.toggle('active');
   });
